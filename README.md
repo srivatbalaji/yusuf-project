@@ -1,6 +1,6 @@
 # Pacific Coast Pediatric Ophthalmology & Strabismus Symposium website
 
-A static website for the symposium, built for GitHub Pages. There is no framework and there are no dependencies. Only [Node.js](https://nodejs.org) 20 or newer is needed.
+A static website for the symposium, hosted on Vercel. There is no framework and there are no dependencies. Only [Node.js](https://nodejs.org) 20 or newer is needed.
 
 The source of truth for content is the organizers' flyer. The 2027 "Save the Date" flyers are kept in [`reference/`](reference/).
 
@@ -40,10 +40,10 @@ npm run preview   # build, then serve at http://localhost:4173
 
 `npm run check` catches common mistakes: a weekday that doesn't match the date, bad email addresses, non-`https` links, missing logo or photo files, broken in-page links, and text colors with too little contrast.
 
-## Deploying to GitHub Pages
+## Deploying
 
-1. Put this folder in its own GitHub repository and push to the `main` branch.
-2. On GitHub, open **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Each push to `main` runs `.github/workflows/deploy.yml`, which builds, checks, and publishes `dist/`. If the check fails, nothing is published.
+The site is hosted on [Vercel](https://vercel.com). Each push to the `main` branch is built and published automatically, using the settings in `vercel.json` (`npm run build`, output in `dist/`).
 
-All links are relative, so the site works at `https://<user>.github.io/<repo>/` or on a custom domain.
+Vercel runs the build only, not `npm run check`, so run `npm test` before pushing.
+
+All links are relative, so the site works at any domain or sub-path.
