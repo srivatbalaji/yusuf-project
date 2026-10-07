@@ -60,9 +60,12 @@ export default {
 
   // People listed under "Contact us" on the flyer. Write the name exactly as it
   // should appear. Add `role` (e.g. "Course Director") once confirmed.
+  // Leave `email` null until the person confirms one; they are then shown
+  // under Organizers but left out of "Contact us".
   organizers: [
     { name: "Yusuf Karan", role: null, email: "yusufykaran17@berkeley.edu" },
     { name: "Azam Qureshi, M.D.", role: "Dinner host", email: "azam.qureshi@sutterhealth.org" },
+    { name: "Ann Shue, M.D.", role: null, email: null },
     { name: "Dr. Simon Fung", role: null, email: "simon.fung@ucsf.edu" },
   ],
 

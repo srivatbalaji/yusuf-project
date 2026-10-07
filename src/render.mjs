@@ -157,7 +157,7 @@ function organizersSection(c) {
           <p class="row-title">${esc(p.name)}</p>
           <p class="row-sub">${p.role ? esc(p.role) : "Role: " + TBC}</p>
         </div>
-        <a class="person-email" href="mailto:${esc(p.email)}">${esc(p.email)}</a>
+        ${p.email ? `<a class="person-email" href="mailto:${esc(p.email)}">${esc(p.email)}</a>` : `<p class="row-sub">Email: ${TBC}</p>`}
       </li>`,
     )
     .join("");
@@ -283,6 +283,7 @@ function directionsSection(c) {
 
 function contactSection(c) {
   const rows = c.organizers
+    .filter((p) => p.email)
     .map(
       (p) => `<li><p class="row-title">${esc(p.name)}</p>
         <a class="contact-email" href="mailto:${esc(p.email)}">${esc(p.email)}</a></li>`,

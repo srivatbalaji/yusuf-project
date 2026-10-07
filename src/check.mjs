@@ -41,7 +41,7 @@ for (const [year, { file, data: c }] of Object.entries(years)) {
   }
 
   for (const p of c.organizers ?? []) {
-    if (!EMAIL.test(p.email ?? "")) fail(`${file}: organizer "${p.name}" has an invalid email "${p.email}"`);
+    if (p.email !== null && !EMAIL.test(p.email ?? "")) fail(`${file}: organizer "${p.name}" has an invalid email "${p.email}"`);
   }
   for (const [label, url] of [
     ["registration.url", c.registration?.url],
